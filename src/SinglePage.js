@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { restaurantsData } from "./db";
 import "./singlePage.css";
@@ -7,6 +7,9 @@ import { CuisineContext } from "./Context";
 export const SinglePage = () => {
   const { id } = useParams();
   const { cuisineDispatcher } = useContext(CuisineContext);
+const [showModal, setShowModal] = useState(false);
+  const [rating, setRating] = useState(0);
+  const [comment, setComment] = useState('');
 
 
 
@@ -20,11 +23,17 @@ export const SinglePage = () => {
       type: "ADD_REVIEW",
       payload: { restaurantId, rating, comment },
     });
+     setShowModal(false);
+    setRating(0);
+    setComment('');
+  };
+  const openModal = () => {
+    setShowModal(true);
   };
 
-//   const openModdal=()=>{
-
-//   }
+  const closeModal = () => {
+    setShowModal(false);
+  };
   return (
     <div className="single-main">
       <div className="single-main-component">
@@ -48,11 +57,7 @@ export const SinglePage = () => {
                 <button
                   className="menu-btn"
                   onClick={() =>
-                    addReview(
-                      item.id,
-                      item.ratings,
-                      item.ratings.map((rate) => rate.comment)
-                    )
+                   openModal()
                   }
                 >
                   Add Review
@@ -83,6 +88,34 @@ export const SinglePage = () => {
           </div>
         ))}
       </div>
+       {showModal && (
+        <div className="modal">
+          <div className="modal-content">
+            <h3>Add Review</h3>
+            <label>
+              Rating:
+              <input
+                type="number"
+                min="1"
+                max="5"
+                value={rating}
+                onChange={(e) => setRating(e.target.value)}
+              />
+            </label>
+            <label>
+              Comment:
+              <textarea
+                value={comment}
+                onChange={(e) => setComment(e.target.value)}
+              ></textarea>
+            </label>
+            <div>
+              <button onClick={addReview}>Submit</button>
+              <button onClick={closeModal}>Cancel</button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 };

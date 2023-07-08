@@ -13,7 +13,7 @@ const cuisineReducer = (state, action) => {
       };
     case 'ADD_REVIEW': {
       const { restaurantId, rating, comment } = action.payload;
-      const updatedRestaurants = state.restaurants.map(restaurant => {
+      const updatedRestaurants = restaurantsData.map(restaurant => {
         if (restaurant.id === restaurantId) {
           const newReview = { rating, comment };
           return {
