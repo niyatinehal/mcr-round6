@@ -1,0 +1,50 @@
+.single-main-component{
+    display: flex;
+    justify-content: flex-start;
+    gap: 20vw;
+}
+.single-main-component .back{
+    margin-left: 3rem;
+}
+.single-page-content{
+    width: 60%;
+}
+.single-page-content-heading{
+    text-align: left;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.single-page-content-heading , h1{
+    margin-bottom: 0;
+}
+.sub-heading{
+    font-weight: lighter;
+}
+
+.review{
+    text-align: left;
+}
+.profile{
+    display: flex;
+    align-items: center;
+}
+.review .pp{
+width: 1.5rem;
+border: 50%;
+padding-right: 10px;
+}
+.comment{
+    margin: 0;
+}
+.reviewer{
+    display: flex;
+    justify-content: space-between;
+}
+.rating{
+    border-radius: 6px;
+    height: min-content;
+    padding: 5px 15px;
+    background-color: green;
+    color: yellow;
+}

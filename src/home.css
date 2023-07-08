@@ -1,0 +1,36 @@
+.btn {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+}
+.menu-btn{
+    background-color: #c34747;
+    padding: 8px;
+    border: none;
+    border-radius: 8px;
+    color: white;
+}
+.menu-item{
+    display: flex;
+    justify-content: space-evenly;
+}
+.menu-item-name{
+    text-align: left;
+    padding-left: 2rem;
+    margin: 2px;
+}
+.image-section{
+    border: 2px solid #9c9797;
+    border-radius: 10px;
+}
+.image-section p{
+    font-weight: lighter;
+    font-size: 14px;
+    text-align: left;
+    padding-left: 2rem;
+    margin: 2px;
+}
+.image{
+    width: 15rem;
+    height: 16rem;
+}
